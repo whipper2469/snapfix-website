@@ -3,336 +3,140 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SnapFix.Homes — Fix it right. Start with a snap.</title>
-<meta name="description" content="SnapFix.Homes uses AI to identify home repair issues, explain what's wrong, and show you how to fix it — step by step. Snap a photo, get a diagnosis.">
+<title>Claybird Labs — small apps, carefully made</title>
+<meta name="description" content="Claybird Labs is an independent software studio in Kitchener–Waterloo, Ontario, building practical mobile and web apps.">
+<meta property="og:title" content="Claybird Labs">
+<meta property="og:description" content="An independent software studio building practical apps for everyday problems.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://claybirdlabs.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231A6BEA'><path d='M12 2 2 10h2v10h7v-6h2v6h7V10h2L12 2z'/></svg>">
+<link rel="icon" type="image/svg+xml" href="logo-mark.svg">
+<link rel="apple-touch-icon" href="logo-mark.svg">
 </head>
 <body>
 
 <!-- ============ NAV ============ -->
 <nav class="nav" id="nav">
   <div class="container nav-inner">
-    <a class="brand" href="#top" aria-label="SnapFix.Homes home">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#4D8DFF" stroke-width="1.8"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/><circle cx="12" cy="14" r="2.6"/><path d="M12 11.4v-1M12 17.6v-1M14.6 14h1M8.4 14h1"/></svg>
-      SnapFix<span class="accent">.Homes</span>
+    <a class="brand" href="#top" aria-label="Claybird Labs home">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M48,30.6 L60.5,32.8 L48,34.4 Z" fill="#8C3F22"/>
+        <path d="M54,32.5 C51.5,30 45,28.5 38,29.5 C27,31 18,36 14,44 C10,49 6,53 2,59 C12,54 20,50 26,46 C32,44 40,41 46,38.5 C50.5,37.2 54,35 54,32.5 Z" fill="#B4532F"/>
+        <path d="M29,33 C25,25 23,14 25,5 C33,11 39,20 41,30 C37,34 32,35 29,33 Z" fill="#E0906A"/>
+        <circle cx="45" cy="32.2" r="1.5" fill="#FDF8F4"/>
+      </svg>
+      claybird<span class="light">&nbsp;labs</span>
     </a>
     <button class="menu-toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
     <div class="nav-links">
-      <a href="#how-it-works">How It Works</a>
-      <a href="#features">Features</a>
-      <a href="#examples">Examples</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#faq">FAQ</a>
-    </div>
-    <div class="nav-cta">
-      <a class="login" href="#coming-soon">Log In</a>
-      <a class="btn" href="#coming-soon" style="opacity:.7;pointer-events:none">Coming Soon</a>
+      <a href="#apps">Apps</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </div>
   </div>
 </nav>
 
 <!-- ============ HERO ============ -->
 <header class="hero" id="top">
-  <div class="container hero-grid">
-    <div>
-      <span class="pill">HOME REPAIR AI</span>
-      <h1>Fix it right.<br>Start with a <span class="accent">snap.</span></h1>
-      <p class="lede">SnapFix.Homes uses AI to identify home repair issues, explain what's wrong, and show you how to fix it—step by step.</p>
-      <div class="hero-ctas">
-        <a class="btn big" href="#coming-soon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-          <span>Snap a Problem<span class="btn-sub">Get AI Help Now</span></span>
-        </a>
-        <a class="btn ghost big" href="#how-it-works">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-          See How It Works
-        </a>
-      </div>
-      <div class="hero-trust">
-        <div class="trust">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.65 1.65 0 0 0 15 19.4a1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-          <div><b>AI-Powered</b><span>Smart. Fast. Accurate.</span></div>
-        </div>
-        <div class="trust">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/></svg>
-          <div><b>For Every Home</b><span>Inside &amp; Out</span></div>
-        </div>
-        <div class="trust">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <div><b>Save Time &amp; Money</b><span>Fix with Confidence</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero-visual">
-      <!-- CSS phone mockup -->
-      <div class="phone" aria-hidden="true">
-        <div class="phone-screen">
-          <div class="phone-status"><span>9:41</span><span>●●● ⌁ ▮</span></div>
-          <div class="phone-brand">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/></svg>
-            SnapFix.Homes
-          </div>
-          <div class="phone-photo"><div class="pipe"></div><div class="joint"></div><div class="drip"></div></div>
-          <div class="phone-body">
-            <div class="row-between">
-              <div>
-                <div class="phone-label">Detected Issue</div>
-                <div class="phone-issue">Leaking Pipe</div>
-                <div class="conf">Confidence: <b>95%</b></div>
-              </div>
-              <span style="color:#98A2B3">›</span>
-            </div>
-            <div class="phone-fix">
-              <div class="phone-label">Recommended Fix</div>
-              <p>Replace the worn washer and tighten the connection.</p>
-            </div>
-            <span class="phone-btn">View Step-by-Step Guide</span>
-            <div class="phone-tabs">
-              <span class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/></svg>Home</span>
-              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>History</span>
-              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>Camera</span>
-              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Guides</span>
-              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Profile</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="qr-side">
-        <p class="hand qr-note">Scan to get AI home repair help now!</p>
-        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 4c4 3 7 8 7 14"/><path d="M9 16l5 3 3-5"/></svg>
-        <div class="qr-card">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&amp;data=https%3A%2F%2Fhomerepair-ai.com" alt="QR code linking to SnapFix on the App Store" loading="lazy">
-          <div class="qr-tag">📱 SCAN ME</div>
-        </div>
-      </div>
+  <div class="container">
+    <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M48,30.6 L60.5,32.8 L48,34.4 Z" fill="#8C3F22"/>
+      <path d="M54,32.5 C51.5,30 45,28.5 38,29.5 C27,31 18,36 14,44 C10,49 6,53 2,59 C12,54 20,50 26,46 C32,44 40,41 46,38.5 C50.5,37.2 54,35 54,32.5 Z" fill="#B4532F"/>
+      <path d="M29,33 C25,25 23,14 25,5 C33,11 39,20 41,30 C37,34 32,35 29,33 Z" fill="#E0906A"/>
+      <circle cx="45" cy="32.2" r="1.5" fill="#FDF8F4"/>
+    </svg>
+    <span class="pill">Independent software studio</span>
+    <h1>claybird<span class="light"> labs</span></h1>
+    <p>We build small, practical apps that solve everyday problems — the kind you actually keep on your home screen.</p>
+    <div class="hero-cta">
+      <a class="btn" href="#apps">See our apps</a>
+      <a class="btn ghost" href="#contact">Get in touch</a>
     </div>
   </div>
 </header>
 
-<!-- ============ HOW IT WORKS ============ -->
-<section class="dark" id="how-it-works">
+<!-- ============ APPS ============ -->
+<section class="alt" id="apps">
   <div class="container">
-    <div class="kicker">HOW IT WORKS</div>
-    <h2>Get answers in 3 simple steps</h2>
-    <div class="steps">
-      <div class="step">
-        <div class="step-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-          <span class="step-num">1</span>
-        </div>
-        <b>Snap</b>
-        <p>Take a photo of the problem.</p>
-      </div>
-      <div class="step">
-        <div class="step-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l1.7 4.6L18 9l-4.3 1.4L12 15l-1.7-4.6L6 9l4.3-1.4L12 3z"/><path d="M19 14l.8 2.2L22 17l-2.2.8L19 20l-.8-2.2L16 17l2.2-.8L19 14z"/></svg>
-          <span class="step-num">2</span>
-        </div>
-        <b>AI Analyzes</b>
-        <p>Our AI identifies the issue and explains what's wrong.</p>
-      </div>
-      <div class="step">
-        <div class="step-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a4.5 4.5 0 0 0-6 6L3 18l3 3 5.7-5.7a4.5 4.5 0 0 0 6-6L14 13l-3-3 3.7-3.7z"/></svg>
-          <span class="step-num">3</span>
-        </div>
-        <b>Fix It</b>
-        <p>Get step-by-step instructions, tools, and pro tips.</p>
-      </div>
+    <div class="section-head">
+      <h2>What we're building</h2>
+      <p>Every app gets its own page here, with its own support and privacy pages — so you always know who made the thing on your phone.</p>
     </div>
-  </div>
-</section>
 
-<!-- ============ FEATURES ============ -->
-<section class="light" id="features">
-  <div class="container features-grid">
-    <div>
-      <div class="eyebrow">BUILT FOR REAL HOMEOWNERS</div>
-      <h2>Smart help for <span class="accent">every</span><br>home repair.</h2>
-      <div class="feature-list">
-        <div class="feature">
-          <div class="feature-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
-          <div><b>AI-Powered Detection</b><p>Advanced AI recognizes thousands of home issues instantly.</p></div>
-        </div>
-        <div class="feature">
-          <div class="feature-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4.5 4.5 0 0 0-6 6L3 18l3 3 5.7-5.7a4.5 4.5 0 0 0 6-6L14 13l-3-3 3.7-3.7z"/></svg></div>
-          <div><b>Tools &amp; Materials</b><p>Get a list of what you need to get the job done.</p></div>
-        </div>
-        <div class="feature">
-          <div class="feature-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
-          <div><b>For Every Skill Level</b><p>Whether you're a beginner or a DIY pro, we've got you.</p></div>
-        </div>
-        <div class="feature">
-          <div class="feature-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-          <div><b>Step-by-Step Guides</b><p>Clear instructions with photos and easy-to-follow steps.</p></div>
-        </div>
-        <div class="feature">
-          <div class="feature-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></div>
-          <div><b>Save &amp; Track</b><p>Save your fixes and track your home maintenance.</p></div>
-        </div>
-        <div class="feature">
-          <div class="feature-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/></svg></div>
-          <div><b>Any Room, Any Problem</b><p>Plumbing, electrical, drywall, appliances, and more.</p></div>
-        </div>
-      </div>
-    </div>
-    <div class="house-blob">
-      <!-- Drop a house photo at images/house.jpg to replace the illustration -->
-      <img class="house-img" src="images/house.jpg" alt="A well-maintained two-storey home" loading="lazy"
-           onerror="this.outerHTML='<svg class=&quot;house-img&quot; viewBox=&quot;0 0 430 322&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;><rect width=&quot;430&quot; height=&quot;322&quot; fill=&quot;%23DCEBFF&quot;/><path d=&quot;M70 200 215 90l145 110v92H70z&quot; fill=&quot;%23ffffff&quot;/><path d=&quot;M55 205 215 82l160 123&quot; stroke=&quot;%230E1B3D&quot; stroke-width=&quot;10&quot; fill=&quot;none&quot; stroke-linecap=&quot;round&quot;/><rect x=&quot;195&quot; y=&quot;230&quot; width=&quot;42&quot; height=&quot;62&quot; fill=&quot;%231A6BEA&quot;/><rect x=&quot;105&quot; y=&quot;225&quot; width=&quot;46&quot; height=&quot;38&quot; fill=&quot;%239CC0FF&quot;/><rect x=&quot;280&quot; y=&quot;225&quot; width=&quot;46&quot; height=&quot;38&quot; fill=&quot;%239CC0FF&quot;/></svg>'">
-    </div>
-  </div>
-</section>
+    <div class="apps">
 
-<!-- ============ EXAMPLES ============ -->
-<section class="examples" id="examples">
-  <div class="container">
-    <div class="kicker" style="color:var(--blue)">EXAMPLES</div>
-    <h2 style="text-align:center;font-size:2.1rem;letter-spacing:-.02em;font-weight:800">See SnapFix.Homes in action</h2>
-    <style>
-      .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; }
-      .card { border-radius: 16px; overflow: hidden; background: #fff; box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
-      .card-wrap { position: relative; background: #f4f5f7; }
-      .card-img { width: 100%; height: auto; display: block; object-fit: contain; }
-      .card-body { padding: 16px 18px 20px; }
-      .card-body b { font-size: 1rem; font-weight: 700; color: #0E1B3D; display: block; margin-bottom: 6px; }
-      .card-body p { font-size: .88rem; color: #6b7280; margin: 0; line-height: 1.5; }
-      .tag { position: absolute; bottom: 12px; left: 12px; background: #1a73e8; color: #fff; font-size: .75rem; font-weight: 600; padding: 4px 12px; border-radius: 20px; }
-    </style>
-    <div class="cards">
-      <div class="card"><div class="card-wrap">
-        <img class="card-img" src="images/snapfix-demo.gif" alt="Dripping pipe under a sink">
-        <span class="tag">Plumbing</span></div>
-        <div class="card-body"><b>Dripping Pipe</b><p>Find the cause and learn how to stop the leak.</p></div>
-      </div>
-      <div class="card"><div class="card-wrap">
-        <img class="card-img" src="images/snapfix-outlet.gif" alt="Wall outlet not working">
-        <span class="tag">Electrical</span></div>
-        <div class="card-body"><b>Outlet Not Working</b><p>Diagnose common outlet issues and fix safely.</p></div>
-      </div>
-      <div class="card"><div class="card-wrap">
-        <img class="card-img" src="images/snapfix-hole-in-wall.gif" alt="Hole in drywall">
-        <span class="tag">Drywall</span></div>
-        <div class="card-body"><b>Hole in the Wall</b><p>Easy patching and repair, step by step.</p></div>
-      </div>
-      <div class="card"><div class="card-wrap">
-        <img class="card-img" src="images/snapfix-loose-faucet.gif" alt="Loose kitchen faucet">
-        <span class="tag">Fixtures</span></div>
-        <div class="card-body"><b>Loose Faucet</b><p>Tighten it up and stop the wobble.</p></div>
-      </div>
-      <div class="card"><div class="card-wrap">
-        <img class="card-img" src="images/snapfix-weak-airflow.gif" alt="Air vent with weak airflow">
-        <span class="tag">HVAC</span></div>
-        <div class="card-body"><b>Weak Airflow</b><p>Improve airflow and get your system running better.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PRICING ============ -->
-<section class="pricing" id="pricing">
-  <div class="container">
-    <div class="kicker" style="color:var(--blue)">PRICING</div>
-    <h2 style="text-align:center;font-size:2.1rem;letter-spacing:-.02em;font-weight:800">Simple, honest pricing</h2>
-    <div class="plans">
-      <div class="plan">
-        <h3>Free</h3>
-        <div class="price">$0<span>/month</span></div>
-        <p style="color:var(--muted);font-size:.9rem">Try SnapFix on your next repair.</p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>AI photo diagnosis</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Basic step-by-step guides</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Limited diagnoses per month</li>
-        </ul>
-        <a class="btn ghost" href="#coming-soon" style="opacity:.6;pointer-events:none">Coming Soon</a>
-      </div>
-      <div class="plan featured">
-        <span class="badge">MOST POPULAR</span>
-        <h3>SnapFix Pro</h3>
-        <div class="price">$6.99<span>/month</span></div>
-        <p style="color:var(--muted);font-size:.9rem">Unlimited help for your whole home.</p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Unlimited AI diagnoses</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Multi-photo analysis (up to 3 angles)</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Follow-up AI chat about your repair</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Shopping lists with cost estimates</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Before &amp; after fix verification</li>
-        </ul>
-        <a class="btn" href="#coming-soon" style="opacity:.6;pointer-events:none">Coming Soon</a>
-      </div>
-    </div>
-    <p style="text-align:center;color:var(--muted);font-size:.82rem;margin-top:26px">Subscriptions are billed through the App Store and can be cancelled anytime in your Apple ID settings.</p>
-  </div>
-</section>
-
-<!-- ============ FAQ ============ -->
-<section class="faq" id="faq">
-  <div class="container">
-    <div class="kicker" style="color:var(--blue)">FAQ</div>
-    <h2>Frequently asked questions</h2>
-    <div class="faq-list">
-      <details>
-        <summary>What kinds of problems can SnapFix diagnose?</summary>
-        <p>Plumbing issues (leaks, drips, clogs), wall and ceiling damage, appliance error codes, electrical concerns like outlets and switches, pest identification, paint and surface damage, fixtures, and much more. If you can photograph it, SnapFix can help.</p>
-      </details>
-      <details>
-        <summary>How accurate is the AI diagnosis?</summary>
-        <p>SnapFix shows a confidence score with every diagnosis so you always know how certain the AI is. You can add up to three photos from different angles for a more accurate result, and use the follow-up chat to ask questions about your specific situation.</p>
-      </details>
-      <details>
-        <summary>Is SnapFix a replacement for a professional?</summary>
-        <p>SnapFix gives you a clear understanding of the problem and step-by-step guidance for repairs you can safely do yourself. For complex, dangerous, or code-regulated work — like major electrical or gas — we always recommend a licensed professional, and the app will tell you when that's the case.</p>
-      </details>
-      <details>
-        <summary>What happens to the photos I upload?</summary>
-        <p>Your photos are used to generate your diagnosis and are stored securely with your account so you can revisit past repairs. We never sell your photos or data. See our <a href="privacy.html" style="color:var(--blue);text-decoration:underline">Privacy Policy</a> for full details.</p>
-      </details>
-      <details>
-        <summary>Which devices does SnapFix support?</summary>
-        <p>SnapFix is available now for iPhone on the App Store (iOS 17 or later). An Android version is in the works.</p>
-      </details>
-      <details>
-        <summary>How do I cancel my subscription?</summary>
-        <p>Subscriptions are handled by Apple. Open Settings on your iPhone → tap your name → Subscriptions → SnapFix → Cancel. You'll keep Pro access until the end of your billing period.</p>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CTA BAND ============ -->
-<section class="cta-band">
-  <div class="container cta-grid">
-    <div class="cta-brandline">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/><circle cx="12" cy="14" r="2.6"/></svg>
-      <h3>Your home.<br>Smarter fixes.<br><span class="accent">Powered by AI.</span></h3>
-    </div>
-    <div class="cta-qr">
-      <div class="qr-card">
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&amp;data=https%3A%2F%2Fhomerepair-ai.com" alt="QR code to download SnapFix" loading="lazy">
-      </div>
-      <p class="hand" style="max-width:120px">Scan to get the app now!</p>
-    </div>
-    <div class="cta-right">
-      <h4>Ready to fix that?</h4>
-      <p>Snap a problem and get expert help in seconds.</p>
-      <div class="store-row">
-        <a class="btn outline-light" href="#coming-soon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-          Get Started for Free
-        </a>
-        <a class="store-badge" href="#coming-soon">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.96.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
-          <span><small>Download on the</small><b>App Store</b></span>
-        </a>
-        <span class="store-badge" style="opacity:.55;cursor:default" title="Android version coming soon">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 20.5v-17c0-.6.4-1.1.9-1.3l10.6 9.8L3.9 21.8c-.5-.2-.9-.7-.9-1.3zm13.8-7.2L6.05 22.74l8.49-4.9 2.26-4.54zm3.35-2.99c.4.3.65.77.65 1.29s-.25.99-.65 1.29l-2.27 1.31-2.46-2.6 2.46-2.6 2.27 1.31zM6.05 1.26l10.76 9.44-2.26-4.54-8.5-4.9z"/></svg>
-          <span><small>Coming soon on</small><b>Google Play</b></span>
+      <!-- SnapFix -->
+      <a class="app-card" href="snapfix/">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/><circle cx="12" cy="14" r="2.6"/>
+          </svg>
         </span>
+        <span class="tag">iOS · Home</span>
+        <h3>SnapFix</h3>
+        <p>Snap a photo of a home repair problem and get an AI diagnosis, a cost range, and step-by-step guidance — plus local contractors when it's a job for a pro.</p>
+        <span class="more">Learn more →</span>
+      </a>
+
+      <!--
+        TO ADD AN APP: copy the block above, change the href, icon, tag, name and
+        description, then create a matching folder (e.g. /myapp/index.html).
+        Keep each app's support.html and privacy.html inside its own folder —
+        those are the URLs you hand to App Store Connect.
+      -->
+
+      <div class="app-card placeholder">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+        </span>
+        <span class="tag soon">In progress</span>
+        <h3>More on the way</h3>
+        <p>We've got a few more apps in the workshop. They'll show up here as they're ready for the App Store.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="container about-grid">
+    <div>
+      <div class="section-head" style="margin-bottom:20px">
+        <h2>About the studio</h2>
+      </div>
+      <p>Claybird Labs is an independent software studio based in Kitchener–Waterloo, Ontario. We design and build our own apps end to end — the idea, the interface, the backend, and the support inbox.</p>
+      <p>We like problems that are annoying, specific, and solvable: the kind where a good app saves someone a phone call, a service fee, or an afternoon. We'd rather ship one app that people keep than five they delete.</p>
+      <p>Everything here is built and maintained in-house. If you email us, you get the person who wrote the code.</p>
+    </div>
+    <div>
+      <div class="section-head" style="margin-bottom:20px">
+        <h2 style="font-size:1.25rem">At a glance</h2>
+      </div>
+      <ul class="facts">
+        <li><span class="dot"></span><span>Based in Kitchener–Waterloo, Ontario, Canada</span></li>
+        <li><span class="dot"></span><span>Independent and self-funded</span></li>
+        <li><span class="dot"></span><span>Native iOS apps, built with Swift and SwiftUI</span></li>
+        <li><span class="dot"></span><span>Every app has a real support address, answered by a human</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="alt" id="contact">
+  <div class="container">
+    <div class="contact-box">
+      <h2>Get in touch</h2>
+      <p>Questions, bug reports, partnership ideas, or just want to say hello — we read everything.</p>
+      <a class="mail" href="mailto:hello@claybirdlabs.com">hello@claybirdlabs.com</a>
+      <div style="margin-top:24px">
+        <a class="btn" href="mailto:hello@claybirdlabs.com">Email us</a>
       </div>
     </div>
   </div>
@@ -342,22 +146,26 @@
 <footer class="footer">
   <div class="container footer-inner">
     <a class="brand" href="#top">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#4D8DFF" stroke-width="1.8" width="24" height="24"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/></svg>
-      SnapFix<span class="accent">.Homes</span>
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M48,30.6 L60.5,32.8 L48,34.4 Z" fill="#8C3F22"/>
+        <path d="M54,32.5 C51.5,30 45,28.5 38,29.5 C27,31 18,36 14,44 C10,49 6,53 2,59 C12,54 20,50 26,46 C32,44 40,41 46,38.5 C50.5,37.2 54,35 54,32.5 Z" fill="#B4532F"/>
+        <path d="M29,33 C25,25 23,14 25,5 C33,11 39,20 41,30 C37,34 32,35 29,33 Z" fill="#E0906A"/>
+        <circle cx="45" cy="32.2" r="1.5" fill="#FDF8F4"/>
+      </svg>
+      claybird<span class="light">&nbsp;labs</span>
     </a>
     <div class="footer-links">
-      <a href="support.html">Support</a>
-      <a href="support.html#contact">Contact</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Service</a>
+      <a href="#apps">Apps</a>
+      <a href="#about">About</a>
+      <a href="snapfix/support.html">SnapFix support</a>
+      <a href="snapfix/privacy.html">Privacy</a>
+      <a href="snapfix/terms.html">Terms</a>
+      <a href="mailto:hello@claybirdlabs.com">Contact</a>
     </div>
-    <div class="socials">
-      <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-      <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.9-.9-1.9-.9-2.4-1C16.6 4 12 4 12 4s-4.6 0-7.7.2c-.5.1-1.5.1-2.4 1-.7.7-.9 2.3-.9 2.3S.8 9.4.8 11.3v1.4c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.9.9 2 .9 2.5 1 1.8.2 7.6.2 7.6.2s4.6 0 7.7-.2c.5-.1 1.5-.1 2.4-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.4c0-1.9-.2-3.8-.2-3.8zM9.8 14.9V8.7l6.2 3.1-6.2 3.1z"/></svg></a>
-    </div>
+    <div class="copyright">© <span id="year">2026</span> Claybird Labs · Kitchener–Waterloo, Ontario, Canada</div>
   </div>
 </footer>
 
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
