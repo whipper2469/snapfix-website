@@ -279,3 +279,38 @@ details p{margin-top:12px;color:var(--muted);font-size:.92rem}
   .card:hover, .btn:hover{ transform:none; }
   .mo-progress{ display:none; }
 }
+
+/* ============================================================
+   CLAYBIRD LABS BADGE — back-link to the studio site
+   ============================================================ */
+.cb-badge{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:7px 14px; border-radius:999px;
+  border:1px solid rgba(224,144,106,.42);
+  background:rgba(224,144,106,.12);
+  color:#F2C3AA; font-weight:650; font-size:.84rem;
+  text-decoration:none; white-space:nowrap; line-height:1;
+  transition:background .25s var(--mo-ease), border-color .25s var(--mo-ease),
+             color .25s var(--mo-ease), transform .25s var(--mo-ease), box-shadow .25s var(--mo-ease);
+}
+.cb-badge:hover{
+  background:rgba(224,144,106,.22); border-color:#E0906A; color:#FDF8F4;
+  transform:translateY(-1px); box-shadow:0 8px 20px rgba(180,83,47,.22);
+}
+.cb-badge svg{ width:18px; height:18px; flex:none; transition:transform .35s var(--mo-ease); }
+.cb-badge:hover svg{ transform:translateX(-3px) rotate(-8deg); }
+
+/* Footer variant sits on the dark footer */
+.cb-foot{
+  display:inline-flex; align-items:center; gap:9px;
+  text-decoration:none; color:#C8D2E8; font-size:.9rem; font-weight:600;
+  transition:color .25s var(--mo-ease);
+}
+.cb-foot:hover{ color:#fff; }
+.cb-foot svg{ width:20px; height:20px; flex:none; transition:transform .35s var(--mo-ease); }
+.cb-foot:hover svg{ transform:translateX(-3px) rotate(-8deg); }
+
+@media (prefers-reduced-motion:reduce){
+  .cb-badge:hover{ transform:none; }
+  .cb-badge:hover svg, .cb-foot:hover svg{ transform:none; }
+}
