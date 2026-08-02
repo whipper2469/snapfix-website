@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Claybird Labs — small apps, carefully made</title>
 <meta name="description" content="Claybird Labs is an independent software studio in Kitchener–Waterloo, Ontario, building practical mobile and web apps.">
+<meta name="theme-color" content="#FDF8F4">
 <meta property="og:title" content="Claybird Labs">
 <meta property="og:description" content="An independent software studio building practical apps for everyday problems.">
 <meta property="og:type" content="website">
@@ -15,6 +16,8 @@
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" type="image/svg+xml" href="logo-mark.svg">
 <link rel="apple-touch-icon" href="logo-mark.svg">
+<!-- Motion is opt-in: without JS every element stays visible and static. -->
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
@@ -30,13 +33,16 @@
       </svg>
       claybird<span class="light">&nbsp;labs</span>
     </a>
-    <button class="menu-toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
-    <div class="nav-links">
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
       <a href="#apps">Apps</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
 </nav>
 
 <!-- ============ HERO ============ -->
@@ -48,11 +54,11 @@
       <path d="M29,33 C25,25 23,14 25,5 C33,11 39,20 41,30 C37,34 32,35 29,33 Z" fill="#E0906A"/>
       <circle cx="45" cy="32.2" r="1.5" fill="#FDF8F4"/>
     </svg>
-    <span class="pill">Independent software studio</span>
+    <span class="pill"><span class="ping" aria-hidden="true"></span>Independent software studio</span>
     <h1>claybird<span class="light"> labs</span></h1>
     <p>We build small, practical apps that solve everyday problems — the kind you actually keep on your home screen.</p>
     <div class="hero-cta">
-      <a class="btn" href="#apps">See our apps</a>
+      <a class="btn" href="#apps">See our apps <span class="arrow" aria-hidden="true">→</span></a>
       <a class="btn ghost" href="#contact">Get in touch</a>
     </div>
   </div>
@@ -61,7 +67,7 @@
 <!-- ============ APPS ============ -->
 <section class="alt" id="apps">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head" data-reveal>
       <h2>What we're building</h2>
       <p>Every app has a real home — its own page and its own support and privacy pages — so you always know who made the thing on your phone.</p>
     </div>
@@ -69,7 +75,7 @@
     <div class="apps">
 
       <!-- SnapFix -->
-      <a class="app-card" href="snapfix/">
+      <a class="app-card" href="snapfix/" data-reveal style="--i:0">
         <span class="icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/><circle cx="12" cy="14" r="2.6"/>
@@ -78,11 +84,11 @@
         <span class="tag">iOS · Home</span>
         <h3>SnapFix</h3>
         <p>Snap a photo of a home repair problem and get an AI diagnosis, a cost range, and step-by-step guidance — plus local contractors when it's a job for a pro.</p>
-        <span class="more">Learn more →</span>
+        <span class="more">Learn more <i aria-hidden="true">→</i></span>
       </a>
 
       <!-- Cherish — lives on its own domain -->
-      <a class="app-card" href="https://cherishtlc.life/" target="_blank" rel="noopener">
+      <a class="app-card" href="https://cherishtlc.life/" target="_blank" rel="noopener" data-reveal style="--i:1">
         <span class="icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20.8 5.6a5.1 5.1 0 0 0-7.2 0L12 7.2l-1.6-1.6a5.1 5.1 0 1 0-7.2 7.2L12 21l8.8-8.2a5.1 5.1 0 0 0 0-7.2z"/>
@@ -91,18 +97,19 @@
         <span class="tag">iOS · Relationships</span>
         <h3>Cherish</h3>
         <p>The app for your better half. A partner profile, date night ideas, smart reminders and a cooling-off mode — small nudges that help you show up for the person you love.</p>
-        <span class="more">cherishtlc.life ↗</span>
+        <span class="more">cherishtlc.life <i aria-hidden="true">↗</i></span>
       </a>
 
       <!--
         TO ADD AN APP: copy a block above, change the href, icon, tag, name and
-        description. If the app lives here, create a matching folder
-        (e.g. /myapp/index.html) and keep its support.html and privacy.html
-        inside it — those are the URLs you hand to App Store Connect. If it has
-        its own domain, just link out like Cherish does.
+        description. Bump the --i number so it reveals after the card before it.
+        If the app lives here, create a matching folder (e.g. /myapp/index.html)
+        and keep its support.html and privacy.html inside it — those are the URLs
+        you hand to App Store Connect. If it has its own domain, just link out
+        like Cherish does.
       -->
 
-      <div class="app-card placeholder">
+      <div class="app-card placeholder" data-reveal style="--i:2">
         <span class="icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 5v14M5 12h14"/>
@@ -120,7 +127,7 @@
 <!-- ============ ABOUT ============ -->
 <section id="about">
   <div class="container about-grid">
-    <div>
+    <div data-reveal>
       <div class="section-head" style="margin-bottom:20px">
         <h2>About the studio</h2>
       </div>
@@ -128,7 +135,7 @@
       <p>We like problems that are annoying, specific, and solvable: the kind where a good app saves someone a phone call, a service fee, or an afternoon. We'd rather ship one app that people keep than five they delete.</p>
       <p>Everything here is built and maintained in-house. If you email us, you get the person who wrote the code.</p>
     </div>
-    <div>
+    <div data-reveal style="--i:1">
       <div class="section-head" style="margin-bottom:20px">
         <h2 style="font-size:1.25rem">At a glance</h2>
       </div>
@@ -145,12 +152,12 @@
 <!-- ============ CONTACT ============ -->
 <section class="alt" id="contact">
   <div class="container">
-    <div class="contact-box">
+    <div class="contact-box" data-reveal>
       <h2>Get in touch</h2>
       <p>Questions, bug reports, partnership ideas, or just want to say hello — we read everything.</p>
       <a class="mail" href="mailto:hello@claybirdlabs.com">hello@claybirdlabs.com</a>
       <div style="margin-top:24px">
-        <a class="btn" href="mailto:hello@claybirdlabs.com">Email us</a>
+        <a class="btn" href="mailto:hello@claybirdlabs.com">Email us <span class="arrow" aria-hidden="true">→</span></a>
       </div>
     </div>
   </div>
@@ -181,6 +188,81 @@
   </div>
 </footer>
 
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>
+(function () {
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---- Hero entrance ---- */
+  var hero = document.getElementById('top');
+  requestAnimationFrame(function () { hero.classList.add('ready'); });
+  // Failsafe: if rAF never runs, the hero must not stay hidden.
+  setTimeout(function () { hero.classList.add('ready'); }, 1200);
+
+  /* ---- Scroll reveal ---- */
+  var revealables = document.querySelectorAll('[data-reveal]');
+  if (reduced || !('IntersectionObserver' in window)) {
+    revealables.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
+    revealables.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ---- Nav: shadow, reading progress, active link ---- */
+  var nav = document.getElementById('nav');
+  var progress = document.getElementById('progress');
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+  var sections = links
+    .map(function (a) { return document.querySelector(a.getAttribute('href')); })
+    .filter(Boolean);
+  var ticking = false;
+
+  function onScroll() {
+    var y = window.scrollY || window.pageYOffset;
+    nav.classList.toggle('scrolled', y > 8);
+
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.transform = 'scaleX(' + (max > 0 ? Math.min(y / max, 1) : 0) + ')';
+
+    var current = null;
+    sections.forEach(function (sec) {
+      if (sec.getBoundingClientRect().top <= window.innerHeight * 0.4) current = sec.id;
+    });
+    links.forEach(function (a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(onScroll);
+  }, { passive: true });
+  onScroll();
+
+  /* ---- Mobile menu ---- */
+  var toggle = document.getElementById('menuToggle');
+  function setMenu(open) {
+    nav.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+  }
+  toggle.addEventListener('click', function () {
+    setMenu(!nav.classList.contains('open'));
+  });
+  links.forEach(function (a) {
+    a.addEventListener('click', function () { setMenu(false); });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') setMenu(false);
+  });
+})();
+</script>
 </body>
 </html>
