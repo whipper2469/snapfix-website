@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231A6BEA'><path d='M12 2 2 10h2v10h7v-6h2v6h7V10h2L12 2z'/></svg>">
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 <nav class="nav">
@@ -31,7 +32,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6 12 13 2 6"/></svg>
       <h3>Email us</h3>
       <p>Questions, bug reports, feedback, or anything else — email is the fastest way to reach us.</p>
-      <a class="btn" href="mailto:support@claybirdlabs.com?subject=SnapFix%20Support">support@claybirdlabs.com</a>
+      <a class="btn" href="mailto:support@snapfix.homes?subject=SnapFix%20Support">support@snapfix.homes</a>
     </div>
     <div class="support-card">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
@@ -45,7 +46,7 @@
   <p>Subscriptions are billed by Apple through your Apple ID. To manage or cancel: open <strong>Settings</strong> on your iPhone → tap your name → <strong>Subscriptions</strong> → <strong>SnapFix</strong>. Refund requests are handled by Apple at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
 
   <h2>Account &amp; data</h2>
-  <p>You can update your profile inside the app. To delete your account and all associated data (photos, repair history, chat), use the delete option in the app's profile settings, or email us at <a href="mailto:support@claybirdlabs.com">support@claybirdlabs.com</a> from your account email and we'll handle it within 30 days. See our <a href="privacy.html">Privacy Policy</a> for details.</p>
+  <p>You can update your profile inside the app. To delete your account and all associated data (photos, repair history, chat), use the delete option in the app's profile settings, or email us at <a href="mailto:support@snapfix.homes">support@snapfix.homes</a> from your account email and we'll handle it within 30 days. See our <a href="privacy.html">Privacy Policy</a> for details.</p>
 
   <h2>Something dangerous?</h2>
   <p>SnapFix is an informational tool. If you smell gas, see sparking, or have major water flooding, don't wait for an app — leave the area if needed and call a licensed professional or emergency services first.</p>
@@ -67,5 +68,57 @@
     </div>
   </div>
 </footer>
+<script>
+/* Motion layer — reveals on scroll, nav progress. Degrades to static without JS. */
+(function () {
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var sel = '.hero .container > *, section > .container > *, .step, .card, .feature';
+  var els = Array.prototype.slice.call(document.querySelectorAll(sel));
+
+  var counts = [];
+  els.forEach(function (el) {
+    var p = el.parentNode, i = 0, hit = null;
+    for (i = 0; i < counts.length; i++) { if (counts[i][0] === p) { hit = counts[i]; break; } }
+    if (!hit) { hit = [p, 0]; counts.push(hit); }
+    el.style.setProperty('--mo-i', hit[1]++);
+  });
+
+  function showAll() { els.forEach(function (el) { el.classList.add('mo-in'); }); }
+
+  if (reduced || !('IntersectionObserver' in window)) {
+    showAll();
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('mo-in');
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+    els.forEach(function (el) { io.observe(el); });
+    setTimeout(showAll, 5000);
+  }
+
+  var nav = document.querySelector('.nav');
+  var bar = document.createElement('div');
+  bar.className = 'mo-progress';
+  document.body.appendChild(bar);
+
+  var ticking = false;
+  function onScroll() {
+    var y = window.scrollY || window.pageYOffset;
+    if (nav) nav.classList.toggle('mo-scrolled', y > 8);
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(y / max, 1) : 0) + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(onScroll);
+  }, { passive: true });
+  onScroll();
+})();
+</script>
 </body>
 </html>

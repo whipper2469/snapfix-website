@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231A6BEA'><path d='M12 2 2 10h2v10h7v-6h2v6h7V10h2L12 2z'/></svg>">
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
@@ -361,5 +362,57 @@
   </div>
 </footer>
 
+<script>
+/* Motion layer — reveals on scroll, nav progress. Degrades to static without JS. */
+(function () {
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var sel = '.hero .container > *, section > .container > *, .step, .card, .feature';
+  var els = Array.prototype.slice.call(document.querySelectorAll(sel));
+
+  var counts = [];
+  els.forEach(function (el) {
+    var p = el.parentNode, i = 0, hit = null;
+    for (i = 0; i < counts.length; i++) { if (counts[i][0] === p) { hit = counts[i]; break; } }
+    if (!hit) { hit = [p, 0]; counts.push(hit); }
+    el.style.setProperty('--mo-i', hit[1]++);
+  });
+
+  function showAll() { els.forEach(function (el) { el.classList.add('mo-in'); }); }
+
+  if (reduced || !('IntersectionObserver' in window)) {
+    showAll();
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('mo-in');
+        io.unobserve(e.target);
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+    els.forEach(function (el) { io.observe(el); });
+    setTimeout(showAll, 5000);
+  }
+
+  var nav = document.querySelector('.nav');
+  var bar = document.createElement('div');
+  bar.className = 'mo-progress';
+  document.body.appendChild(bar);
+
+  var ticking = false;
+  function onScroll() {
+    var y = window.scrollY || window.pageYOffset;
+    if (nav) nav.classList.toggle('mo-scrolled', y > 8);
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(y / max, 1) : 0) + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(onScroll);
+  }, { passive: true });
+  onScroll();
+})();
+</script>
 </body>
 </html>

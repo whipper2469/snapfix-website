@@ -225,3 +225,57 @@ details p{margin-top:12px;color:var(--muted);font-size:.92rem}
   *{animation:none!important;transition:none!important}
   html{scroll-behavior:auto}
 }
+
+/* ============================================================
+   MOTION LAYER
+   Opt-in: without JS the .js class is never set, so nothing is
+   hidden and the page renders exactly as it did before.
+   ============================================================ */
+:root{ --mo-ease:cubic-bezier(.16,1,.3,1); }
+
+/* Reveal targets are pre-hidden in CSS (not JS) so they never flash */
+.js .hero .container > *,
+.js section > .container > *,
+.js .step,
+.js .card,
+.js .feature{
+  opacity:0; transform:translate3d(0,20px,0);
+  transition:opacity .7s var(--mo-ease), transform .7s var(--mo-ease);
+  transition-delay:calc(var(--mo-i,0) * 80ms);
+}
+.js .mo-in{ opacity:1 !important; transform:none !important; }
+
+/* Reading progress along the top of the sticky nav */
+.mo-progress{
+  position:fixed; top:0; left:0; height:2px; width:100%;
+  background:linear-gradient(90deg,#5B9BFF,var(--blue));
+  transform:scaleX(0); transform-origin:left; z-index:999; will-change:transform;
+}
+.nav{ transition:box-shadow .3s var(--mo-ease), background .3s var(--mo-ease); }
+.nav.mo-scrolled{ box-shadow:0 6px 26px rgba(14,27,61,.28); }
+
+/* Nav underline */
+.nav-links a{ position:relative; }
+.nav-links a::after{
+  content:""; position:absolute; left:0; right:0; bottom:-4px; height:2px; border-radius:2px;
+  background:var(--blue); transform:scaleX(0); transform-origin:right;
+  transition:transform .32s var(--mo-ease);
+}
+.nav-links a:hover::after{ transform:scaleX(1); transform-origin:left; }
+
+/* Hover polish */
+.card, .step, .feature{ transition:transform .35s var(--mo-ease), box-shadow .35s var(--mo-ease); }
+.card:hover{ transform:translateY(-6px); box-shadow:0 18px 44px rgba(14,27,61,.16); }
+.step:hover .step-icon{ transform:translateY(-3px) scale(1.06); }
+.step-icon{ transition:transform .4s var(--mo-ease); }
+.btn{ transition:background .25s var(--mo-ease), transform .25s var(--mo-ease), box-shadow .25s var(--mo-ease); }
+.btn:hover{ transform:translateY(-2px); box-shadow:0 10px 24px rgba(26,107,234,.28); }
+.btn:active{ transform:translateY(0) scale(.985); transition-duration:.08s; }
+
+@media (prefers-reduced-motion:reduce){
+  .js .hero .container > *,
+  .js section > .container > *,
+  .js .step, .js .card, .js .feature{ opacity:1; transform:none; }
+  .card:hover, .btn:hover{ transform:none; }
+  .mo-progress{ display:none; }
+}
