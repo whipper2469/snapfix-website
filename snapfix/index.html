@@ -255,6 +255,52 @@
   </div>
 </section>
 
+<!-- ============ BEYOND DIAGNOSIS ============ -->
+<section class="beyond" id="more">
+  <div class="container">
+    <div class="kicker" style="color:var(--blue)">WHEN DIY ISN'T THE ANSWER</div>
+    <h2 style="text-align:center;font-size:2.1rem;letter-spacing:-.02em;font-weight:800">You're not on your own</h2>
+    <div class="duo">
+      <div class="big-card">
+        <div class="big-media"><img src="images/photo-hvac.jpg" alt="An outdoor HVAC condenser unit beside a house" loading="lazy"></div>
+        <div class="big-body">
+          <span class="pillchip">FIND A PRO</span>
+          <h3>Find a local contractor</h3>
+          <p>When a repair is beyond DIY — or code says it has to be — SnapFix hands the diagnosis to a
+            nearby contractor, so you're not re-explaining the problem from scratch.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Matched by trade and postal code</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Your diagnosis travels with the request</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Told plainly when a pro is required</li>
+          </ul>
+        </div>
+      </div>
+      <div class="big-card">
+        <div class="big-media agent-media">
+          <div class="chat-demo" aria-hidden="true">
+            <div class="bubble them">Can someone actually look at this with me?</div>
+            <div class="bubble me">Type <b>live agent</b> and I'll bring a person in.</div>
+            <div class="bubble them">live agent</div>
+            <div class="bubble sys">A SnapFix team member has been notified</div>
+          </div>
+        </div>
+        <div class="big-body">
+          <span class="pillchip">TALK TO A HUMAN</span>
+          <h3>Chat with a live agent</h3>
+          <p>The assistant on this page answers questions about SnapFix — what it covers, what it costs,
+            how to get started. Ask for a live agent and a real person is notified on their phone.</p>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Instant answers, day or night</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Say "live agent" for a human</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>We reply by email, usually same day</li>
+          </ul>
+          <p style="margin-top:18px"><a class="btn" href="#" onclick="openChat();return false">Try the assistant</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ COVERAGE ============ -->
 <section class="coverage" id="coverage">
   <div class="container">
@@ -649,5 +695,162 @@
   onScroll();
 })();
 </script>
+<!-- ============ CHAT WIDGET ============ -->
+<button class="chat-fab" id="chatFab" aria-label="Open chat" onclick="openChat()">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.9-.9L3 20l1.3-3.8A8.4 8.4 0 0 1 3 11.5a8.5 8.5 0 0 1 9-8.4 8.4 8.4 0 0 1 9 8.4z"/></svg>
+</button>
+
+<div class="chat-panel" id="chatPanel" role="dialog" aria-modal="false" aria-label="SnapFix chat">
+  <div class="chat-head">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" width="22" height="22"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/></svg>
+    <div><b>SnapFix assistant</b><span>Ask anything — or type "live agent"</span></div>
+    <button type="button" aria-label="Close chat" onclick="closeChat()">&times;</button>
+  </div>
+  <div class="chat-log" id="chatLog"></div>
+
+  <form class="chat-in" id="chatForm" onsubmit="return sendChat(event)">
+    <input id="chatText" placeholder="Ask about SnapFix…" autocomplete="off" aria-label="Message">
+    <button type="submit" id="chatSend" aria-label="Send">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" style="margin:auto"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg>
+    </button>
+  </form>
+
+  <form class="esc" id="escForm" style="display:none" onsubmit="return sendEscalation(event)">
+    <p><b>Bringing in a person.</b> Leave your details and they'll be notified right away.</p>
+    <input name="name" placeholder="Your name" required autocomplete="name">
+    <input name="email" type="email" placeholder="you@example.com" required autocomplete="email">
+    <input name="note" placeholder="What's it about? (optional)">
+    <button type="submit">Notify a live agent</button>
+    <p id="escErr" style="color:#B42318"></p>
+  </form>
+</div>
+
+<script>
+/* ==========================================================================
+   Site chat. General questions go to the `site-chat` edge function. Asking for
+   a human writes a row to support_contacts, which fires the existing AFTER
+   INSERT trigger -> send-admin-push -> APNs, and also calls notify-support for
+   the email + SMS. Escalation is driven by the page, never by the model, so a
+   prompt-injected "escalate" cannot page anyone.
+   ========================================================================== */
+(function () {
+  var URL_BASE = 'https://japlrtlpopefvgkecpif.supabase.co';
+  var ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImphcGxydGxwb3BlZnZna2VjcGlmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE3Njc1NTcsImV4cCI6MjA4NzM0MzU1N30.q0JVwQJdJcpNUcyt2opxE-yRlhBnWdO3oq4IUMk6L5M';
+  var H = { 'Content-Type': 'application/json', 'apikey': ANON, 'Authorization': 'Bearer ' + ANON };
+
+  var log = document.getElementById('chatLog');
+  var panel = document.getElementById('chatPanel');
+  var history = [];
+  var greeted = false;
+
+  function add(text, cls) {
+    var d = document.createElement('div');
+    d.className = 'msg ' + cls;
+    d.textContent = text;
+    log.appendChild(d);
+    log.scrollTop = log.scrollHeight;
+    return d;
+  }
+
+  window.openChat = function () {
+    panel.classList.add('open');
+    if (!greeted) {
+      greeted = true;
+      add('Hi — I can answer questions about SnapFix: what it covers, what it costs, how to get started. If you’d rather speak to a person, just type "live agent".', 'bot');
+    }
+    document.getElementById('chatText').focus();
+  };
+  window.closeChat = function () { panel.classList.remove('open'); };
+
+  // Escalation is a page-side decision on the visitor's own words.
+  var WANTS_HUMAN = /\b(live agent|real person|speak to (a )?(human|person|someone)|talk to (a )?(human|person|someone)|human (please|agent)|customer (service|support) rep)\b/i;
+
+  function showEscalation() {
+    document.getElementById('chatForm').style.display = 'none';
+    document.getElementById('escForm').style.display = 'grid';
+    document.getElementById('escForm').querySelector('input').focus();
+  }
+
+  window.sendChat = async function (ev) {
+    ev.preventDefault();
+    var input = document.getElementById('chatText');
+    var btn = document.getElementById('chatSend');
+    var text = input.value.trim();
+    if (!text) return false;
+
+    add(text, 'user');
+    input.value = '';
+
+    if (WANTS_HUMAN.test(text)) {
+      add('Of course — let me put you through to someone.', 'bot');
+      showEscalation();
+      return false;
+    }
+
+    btn.disabled = true;
+    var thinking = add('…', 'bot');
+    try {
+      var res = await fetch(URL_BASE + '/functions/v1/site-chat', {
+        method: 'POST', headers: H,
+        body: JSON.stringify({ message: text, history: history })
+      });
+      var data = await res.json();
+      var reply = data.reply || 'Sorry — try that again?';
+      thinking.textContent = reply;
+      history.push({ role: 'user', content: text });
+      history.push({ role: 'assistant', content: reply });
+      if (history.length > 8) history = history.slice(-8);
+    } catch (e) {
+      thinking.textContent = 'I couldn’t reach the assistant. Type "live agent" and a person will pick this up.';
+    }
+    btn.disabled = false;
+    input.focus();
+    return false;
+  };
+
+  window.sendEscalation = async function (ev) {
+    ev.preventDefault();
+    var f = ev.target;
+    var err = document.getElementById('escErr');
+    var name = f.name.value.trim(), email = f.email.value.trim(), note = f.note.value.trim();
+    err.textContent = '';
+    if (!name || !email) { err.textContent = 'Name and email, please.'; return false; }
+
+    var btn = f.querySelector('button');
+    btn.disabled = true; btn.textContent = 'Notifying…';
+
+    var transcript = history.map(function (m) { return (m.role === 'user' ? 'Visitor: ' : 'Bot: ') + m.content; }).join('\n');
+    var message = (note || 'Asked for a live agent on the website.') + '\n\n--- chat so far ---\n' + (transcript || '(no prior messages)');
+
+    try {
+      // Writing this row is what pages the phone: the AFTER INSERT trigger
+      // calls send-admin-push, which we verified end to end.
+      var res = await fetch(URL_BASE + '/rest/v1/support_contacts', {
+        method: 'POST',
+        headers: Object.assign({}, H, { 'Prefer': 'return=minimal' }),
+        body: JSON.stringify({ name: name, email: email, phone: '', message: message, source: 'website-chat', status: 'new' })
+      });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+
+      // Email + SMS. Best effort — the push above has already gone out, so a
+      // failure here must not tell the visitor nobody was reached.
+      fetch(URL_BASE + '/functions/v1/notify-support', {
+        method: 'POST', headers: H,
+        body: JSON.stringify({ name: name, email: email, phone: '', message: message })
+      }).catch(function () {});
+
+      f.style.display = 'none';
+      add('A SnapFix team member has been notified and will email you at ' + email + '. Usually same day.', 'note');
+      document.getElementById('chatForm').style.display = 'flex';
+    } catch (e) {
+      btn.disabled = false; btn.textContent = 'Notify a live agent';
+      err.textContent = 'Couldn’t reach us just then — please try again.';
+    }
+    return false;
+  };
+})();
+</script>
+
+
 </body>
 </html>

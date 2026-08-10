@@ -399,3 +399,62 @@ details p{margin-top:12px;color:var(--muted);font-size:.92rem}
   .modal-backdrop, .modal{ transition:none; }
   .modal{ transform:none; }
 }
+
+/* ==========================================================================
+   Contractor / live-agent cards + chat widget
+   Uses the existing SnapFix tokens (blue/navy), not the preview's teal.
+   ========================================================================== */
+.beyond{ padding:76px 0; background:#fff; }
+.duo{ display:grid; grid-template-columns:1fr 1fr; gap:26px; margin-top:38px; }
+@media (max-width:900px){ .duo{ grid-template-columns:1fr; } }
+.big-card{ background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+           overflow:hidden; display:flex; flex-direction:column; transition:.22s; }
+.big-card:hover{ box-shadow:var(--shadow); transform:translateY(-3px); }
+.big-media{ aspect-ratio:16/9; overflow:hidden; background:var(--bg-soft); }
+.big-media img{ width:100%; height:100%; object-fit:cover; display:block; }
+.big-body{ padding:24px 24px 28px; }
+.big-body h3{ font-size:1.3rem; font-weight:800; color:var(--navy); margin:10px 0 10px; letter-spacing:-.02em; }
+.big-body p{ color:var(--muted); font-size:.95rem; margin:0; }
+.big-body ul{ list-style:none; padding:0; margin:18px 0 0; display:grid; gap:10px; }
+.big-body li{ display:flex; gap:10px; align-items:flex-start; font-size:.93rem; color:var(--ink); }
+.big-body li svg{ width:19px; height:19px; flex:none; color:var(--blue); margin-top:2px; }
+.pillchip{ display:inline-block; background:rgba(26,107,234,.10); color:var(--blue); font-size:.7rem;
+           font-weight:800; letter-spacing:.06em; padding:5px 11px; border-radius:999px; }
+.agent-media{ background:linear-gradient(135deg,var(--navy),); display:flex; align-items:center; padding:20px; }
+.agent-media{ background:linear-gradient(135deg,#0E1B3D,#1A6BEA); }
+.chat-demo{ display:grid; gap:8px; width:100%; }
+.bubble{ font-size:.84rem; line-height:1.45; padding:9px 13px; border-radius:14px; max-width:86%; }
+.bubble.them{ background:rgba(255,255,255,.95); color:var(--ink); justify-self:end; border-bottom-right-radius:5px; }
+.bubble.me{ background:rgba(255,255,255,.16); color:#fff; justify-self:start; border-bottom-left-radius:5px; }
+.bubble.sys{ background:transparent; color:rgba(255,255,255,.85); font-size:.75rem; justify-self:center;
+             border:1px dashed rgba(255,255,255,.45); border-radius:999px; padding:5px 12px; }
+
+.chat-fab{ position:fixed; right:20px; bottom:20px; z-index:110; width:58px; height:58px; border-radius:50%;
+           border:0; cursor:pointer; background:var(--blue); color:#fff; display:grid; place-items:center;
+           box-shadow:0 10px 30px rgba(14,27,61,.28); transition:.2s; }
+.chat-fab:hover{ background:var(--blue-dark); transform:scale(1.05); }
+.chat-fab svg{ width:26px; height:26px; }
+.chat-panel{ position:fixed; right:20px; bottom:88px; z-index:110; width:min(384px,calc(100vw - 40px));
+             height:min(548px,calc(100vh - 130px)); background:#fff; border-radius:18px; overflow:hidden;
+             box-shadow:0 26px 70px rgba(14,27,61,.30); display:none; flex-direction:column; }
+.chat-panel.open{ display:flex; }
+.chat-head{ background:var(--navy); color:#fff; padding:15px 18px; display:flex; align-items:center; gap:10px; }
+.chat-head b{ font-size:.97rem; }
+.chat-head span{ font-size:.75rem; color:#9DB0C4; display:block; }
+.chat-head button{ margin-left:auto; background:transparent; border:0; color:#9DB0C4; font-size:1.35rem; cursor:pointer; }
+.chat-log{ flex:1; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:10px; background:var(--bg-soft); }
+.msg{ font-size:.89rem; line-height:1.5; padding:10px 13px; border-radius:14px; max-width:84%; white-space:pre-wrap; }
+.msg.bot{ background:#fff; border:1px solid var(--line); color:var(--ink); align-self:flex-start; border-bottom-left-radius:5px; }
+.msg.user{ background:var(--blue); color:#fff; align-self:flex-end; border-bottom-right-radius:5px; }
+.msg.note{ align-self:center; background:transparent; border:1px dashed var(--line); color:var(--muted);
+           font-size:.78rem; border-radius:999px; padding:6px 13px; }
+.chat-in{ display:flex; gap:8px; padding:12px; border-top:1px solid var(--line); background:#fff; }
+.chat-in input{ flex:1; padding:11px 14px; border:1px solid var(--line); border-radius:999px; font:inherit; font-size:.92rem; }
+.chat-in input:focus{ outline:none; border-color:var(--blue); }
+.chat-in button{ background:var(--blue); color:#fff; border:0; border-radius:50%; width:40px; height:40px; cursor:pointer; flex:none; }
+.chat-in button:disabled{ opacity:.5; cursor:default; }
+.esc{ display:grid; gap:8px; padding:12px; border-top:1px solid var(--line); background:#FFFDF5; }
+.esc input{ padding:10px 13px; border:1px solid var(--line); border-radius:10px; font:inherit; font-size:.89rem; }
+.esc button{ padding:11px; border:0; border-radius:10px; background:var(--navy); color:#fff; font:inherit; font-weight:700; cursor:pointer; }
+.esc p{ font-size:.77rem; color:var(--muted); margin:0; }
+@media (prefers-reduced-motion:reduce){ .chat-fab,.big-card{ transition:none; } }
