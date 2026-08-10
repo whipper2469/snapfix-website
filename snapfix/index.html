@@ -53,6 +53,11 @@
           See How It Works
         </a>
       </div>
+
+      <form class="wl-inline" data-waitlist data-source="hero" novalidate>
+        <input type="email" name="email" placeholder="Enter your email" aria-label="Email address" required autocomplete="email">
+        <button type="submit">Notify me at launch</button>
+      </form>
       <div class="hero-trust">
         <div class="trust">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.65 1.65 0 0 0 15 19.4a1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
@@ -115,6 +120,20 @@
     </div>
   </div>
 </header>
+
+<!-- ============ TRUST BAND ============ -->
+<!-- Deliberately product facts, not usage metrics. Nothing here claims a user
+     count, a rating or a testimonial, because SnapFix has not launched and any
+     such number would be invented. Replace with real figures once there are
+     some — the layout is ready for them. -->
+<section class="trust-band">
+  <div class="container">
+    <div class="tb-item"><b>Seconds</b><span>From photo to diagnosis</span></div>
+    <div class="tb-item"><b>Every room</b><span>Plumbing to HVAC and beyond</span></div>
+    <div class="tb-item"><b>Free to start</b><span>No card to try it</span></div>
+    <div class="tb-item"><b>Confidence score</b><span>Shown on every result</span></div>
+  </div>
+</section>
 
 <!-- ============ HOW IT WORKS ============ -->
 <section class="dark" id="how-it-works">
@@ -236,6 +255,24 @@
   </div>
 </section>
 
+<!-- ============ COVERAGE ============ -->
+<section class="coverage" id="coverage">
+  <div class="container">
+    <div class="kicker" style="color:var(--blue)">WHAT IT COVERS</div>
+    <h2 style="text-align:center;font-size:2.1rem;letter-spacing:-.02em;font-weight:800">If you can photograph it, start there</h2>
+    <div class="cov-grid">
+      <div class="cov"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 3v7a6 6 0 0 0 12 0V3"/><path d="M12 16v5"/></svg><b>Plumbing</b></div>
+      <div class="cov"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg><b>Electrical</b></div>
+      <div class="cov"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v6"/></svg><b>Drywall &amp; walls</b></div>
+      <div class="cov"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 8h16M4 12h16M4 16h16"/></svg><b>HVAC &amp; airflow</b></div>
+      <div class="cov"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 12h8"/></svg><b>Appliances</b></div>
+      <div class="cov"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 3v6M9 9h6l-1 12h-4z"/></svg><b>Fixtures</b></div>
+      <div class="cov"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M19 3 8 14l-3-3"/><path d="M5 21h14"/></svg><b>Paint &amp; surfaces</b></div>
+      <div class="cov"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg><b>Pests</b></div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ PRICING ============ -->
 <section class="pricing" id="pricing">
   <div class="container">
@@ -306,6 +343,34 @@
   </div>
 </section>
 
+<!-- ============ WAITLIST ============ -->
+<section class="waitlist" id="waitlist">
+  <div class="container">
+    <div class="kicker" style="color:var(--blue)">EARLY ACCESS</div>
+    <h2 style="text-align:center;font-size:2.1rem;letter-spacing:-.02em;font-weight:800">Be first to know</h2>
+    <p style="text-align:center;color:var(--muted);max-width:520px;margin:10px auto 0">
+      Leave your email and we'll send you a download link the moment SnapFix lands on the App Store.
+    </p>
+
+    <div class="wl-box">
+      <form class="wl-form" data-waitlist data-source="section" novalidate>
+        <div class="wl-row">
+          <input type="text"  name="name"  placeholder="Your name" aria-label="Your name" required autocomplete="name">
+          <select name="role" aria-label="I am a">
+            <option value="homeowner">I'm a homeowner</option>
+            <option value="contractor">I'm a contractor</option>
+            <option value="landlord">I'm a landlord</option>
+          </select>
+        </div>
+        <input type="email" name="email" placeholder="you@example.com" aria-label="Email address" required autocomplete="email">
+        <button type="submit">Join the waitlist</button>
+        <p class="wl-err" data-error role="alert"></p>
+      </form>
+      <p class="wl-note">No spam, one email at launch. Unsubscribe any time.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ============ CTA BAND ============ -->
 <section class="cta-band">
   <div class="container cta-grid">
@@ -361,6 +426,176 @@
     </div>
   </div>
 </footer>
+
+<!-- ============ TIMED MODAL ============ -->
+<div class="modal-backdrop" id="wl-modal" role="dialog" aria-modal="true"
+     aria-labelledby="wl-modal-title" aria-describedby="wl-modal-sub" hidden>
+  <div class="modal">
+    <button class="modal-x" type="button" aria-label="Close">&times;</button>
+    <span class="modal-badge">EARLY ACCESS</span>
+    <h3 id="wl-modal-title">Want a heads-up when SnapFix launches?</h3>
+    <p class="sub" id="wl-modal-sub">
+      Leave your email and we'll send the download link on launch day. One email, nothing else.
+    </p>
+    <form class="wl-form" data-waitlist data-source="modal" novalidate>
+      <div class="wl-row">
+        <input type="text" name="name" placeholder="Your name" aria-label="Your name" required autocomplete="name">
+        <select name="role" aria-label="I am a">
+          <option value="homeowner">I'm a homeowner</option>
+          <option value="contractor">I'm a contractor</option>
+          <option value="landlord">I'm a landlord</option>
+        </select>
+      </div>
+      <input type="email" name="email" placeholder="you@example.com" aria-label="Email address" required autocomplete="email">
+      <button type="submit">Notify me at launch</button>
+      <p class="wl-err" data-error role="alert"></p>
+    </form>
+  </div>
+</div>
+
+<script>
+/* ==========================================================================
+   Waitlist — shared by the hero form, the section form and the timed modal.
+   Posts to the same Supabase table and launch-email function the other build
+   of this site already uses. The key below is the anon key: it is public by
+   design, and the table's only policy is INSERT, so nothing can be read back.
+   ========================================================================== */
+(function () {
+  var SUPABASE_URL = 'https://japlrtlpopefvgkecpif.supabase.co';
+  var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImphcGxydGxwb3BlZnZna2VjcGlmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE3Njc1NTcsImV4cCI6MjA4NzM0MzU1N30.q0JVwQJdJcpNUcyt2opxE-yRlhBnWdO3oq4IUMk6L5M';
+  var JOINED_KEY = 'sf_waitlist_joined';
+
+  function joined() { try { return localStorage.getItem(JOINED_KEY) === '1'; } catch (e) { return false; } }
+  function markJoined() { try { localStorage.setItem(JOINED_KEY, '1'); } catch (e) {} }
+
+  function thanks(form) {
+    var done = document.createElement('div');
+    done.className = 'wl-done';
+    done.innerHTML = '<b>You’re on the list.</b><p>We’ll email you the moment it’s live.</p>';
+    form.parentNode.replaceChild(done, form);
+  }
+
+  async function submit(form, ev) {
+    ev.preventDefault();
+    var err = form.querySelector('[data-error]');
+    var btn = form.querySelector('button[type=submit]');
+    var email = (form.elements.email && form.elements.email.value || '').trim();
+    var name = (form.elements.name && form.elements.name.value || '').trim();
+    var role = (form.elements.role && form.elements.role.value) || 'homeowner';
+
+    if (err) err.textContent = '';
+    if (!email || email.indexOf('@') < 1) {
+      if (err) err.textContent = 'Please enter a valid email address.';
+      else form.elements.email.focus();
+      return;
+    }
+    // `name` is NOT NULL on the table; the hero form only asks for an email.
+    if (!name) name = email.split('@')[0];
+
+    if (btn) { btn.disabled = true; btn.dataset.label = btn.textContent; btn.textContent = 'Adding…'; }
+
+    try {
+      var res = await fetch(SUPABASE_URL + '/rest/v1/waitlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_KEY,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({ name: name, email: email, role: role })
+      });
+      if (!res.ok && res.status !== 409) throw new Error('HTTP ' + res.status);
+
+      // Launch email is best effort — a failure here must not tell someone
+      // their signup failed when the row was written.
+      fetch(SUPABASE_URL + '/functions/v1/send-waitlist-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_KEY
+        },
+        body: JSON.stringify({ name: name, email: email, role: role })
+      }).catch(function () {});
+
+      markJoined();
+      thanks(form);
+      var modal = document.getElementById('wl-modal');
+      if (modal && modal.classList.contains('open') && !modal.contains(form)) closeModal();
+    } catch (e) {
+      if (btn) { btn.disabled = false; btn.textContent = btn.dataset.label || 'Join the waitlist'; }
+      if (err) err.textContent = 'Something went wrong. Please try again.';
+    }
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-waitlist]'), function (f) {
+    f.addEventListener('submit', function (ev) { submit(f, ev); });
+  });
+
+  /* ---- Timed modal: 3 minutes of *active* time on the page ---------------
+     Counted with a visibility-aware timer rather than a plain setTimeout, so a
+     tab left open in the background doesn't pop a dialog the moment it is
+     brought forward. Shown once per visitor, never to someone already signed
+     up, and never on top of a reduced-motion preference for animation only. */
+  var MODAL_DELAY_MS = 3 * 60 * 1000;
+  var SEEN_KEY = 'sf_modal_seen';
+  var modal = document.getElementById('wl-modal');
+  var lastFocus = null;
+  var elapsed = 0, tickStart = null, timer = null;
+
+  function seen() { try { return localStorage.getItem(SEEN_KEY) === '1'; } catch (e) { return false; } }
+  function markSeen() { try { localStorage.setItem(SEEN_KEY, '1'); } catch (e) {} }
+
+  window.closeModal = function () {
+    if (!modal) return;
+    modal.classList.remove('open');
+    setTimeout(function () { modal.hidden = true; }, 300);
+    document.removeEventListener('keydown', onKey);
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  };
+
+  function onKey(e) {
+    if (e.key === 'Escape') { closeModal(); return; }
+    if (e.key !== 'Tab') return;
+    var f = modal.querySelectorAll('button, input, select, a[href]');
+    if (!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+
+  function openModal() {
+    if (!modal || seen() || joined()) return;
+    markSeen();
+    lastFocus = document.activeElement;
+    modal.hidden = false;
+    requestAnimationFrame(function () { modal.classList.add('open'); });
+    document.addEventListener('keydown', onKey);
+    var firstField = modal.querySelector('input');
+    if (firstField) firstField.focus();
+  }
+
+  function stopTick() {
+    if (tickStart !== null) { elapsed += Date.now() - tickStart; tickStart = null; }
+    if (timer) { clearTimeout(timer); timer = null; }
+  }
+  function startTick() {
+    if (seen() || joined() || tickStart !== null) return;
+    tickStart = Date.now();
+    timer = setTimeout(function () { stopTick(); openModal(); }, Math.max(0, MODAL_DELAY_MS - elapsed));
+  }
+
+  if (modal && !seen() && !joined()) {
+    modal.querySelector('.modal-x').addEventListener('click', closeModal);
+    modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) stopTick(); else startTick();
+    });
+    if (!document.hidden) startTick();
+  }
+})();
+</script>
 
 <script>
 /* Motion layer — reveals on scroll, nav progress. Degrades to static without JS. */
