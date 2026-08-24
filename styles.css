@@ -239,6 +239,13 @@ section{padding:78px 0;scroll-margin-top:70px}
 .app-card .more i{font-style:normal;display:inline-block;transition:transform .35s var(--ease-out)}
 .app-card:hover .more i{transform:translateX(5px)}
 .app-card.placeholder{border-style:dashed;background:transparent}
+/* Once the grid is three across (3*290 + 2*22 gutters + 48 padding = 962px), the
+   placeholder spans the row instead of sitting in it as a fourth app — with three
+   apps it would otherwise be stranded alone in an empty row. Below that the grid
+   is two across, where it fills the second row on its own, so leave it be. */
+@media (min-width:962px){
+  .app-card.placeholder{grid-column:1/-1}
+}
 .app-card.placeholder:hover{transform:none;box-shadow:none;border-color:var(--line)}
 .app-card.placeholder:hover::before{opacity:0}
 .app-card.placeholder:hover .icon{transform:none;background:var(--clay-pale);color:var(--clay-dark)}
